@@ -4,13 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Helpful Links - adelphi AI Team</title>
+    <style>
+        .link-button {
+            display: block;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.2s ease;
+        }
+        .link-button:hover {
+            color: #e63946;
+            transform: translateY(-2px);
+        }
+        .button-container {
+            font-size: 1.1em;
+            margin: 15px 0;
+            padding: 15px;
+            background-color: #fef2f2;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+        .button-container:hover {
+            background-color: #fce4e4;
+            box-shadow: 0 4px 12px rgba(230, 57, 70, 0.15);
+        }
+        .agent-description {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+    </style>
 </head>
 <body style="font-family: Arial, sans-serif; margin: 0; padding: 40px; background-color: #faf8f7; min-height: 100vh;">
     <div style="max-width: 800px; margin: 0 auto;">
         
         <!-- Header -->
         <div style="text-align: center; margin-bottom: 40px;">
-            <h1 style="color: #e63946; font-size: 2em; margin-bottom: 10px;">adelphi AI Team</h1>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 15px;">
+                <img src="adelphi-logo.png" alt="adelphi" style="height: 50px;">
+                <h1 style="color: #e63946; font-size: 2em; margin: 0;">adelphi AI Team</h1>
+            </div>
             <p style="color: #666; font-size: 1.1em;">Helpful Links & Resources</p>
         </div>
 
@@ -20,12 +54,12 @@
             <!-- Contact Us Card -->
             <div style="flex: 1; min-width: 280px; max-width: 360px; border: 2px solid #e63946; border-radius: 15px; padding: 25px; background-color: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
                 <h2 style="font-size: 1.4em; margin-top: 0; margin-bottom: 20px; color: #e63946; text-align: center;">📬 Contact Us</h2>
-                <p style="font-size: 1.1em; margin: 15px 0; padding: 15px; background-color: #fef2f2; border-radius: 8px; text-align: center;">
-                    <a href="https://outlook.office.com/book/AITeam@adelphi.de/" target="_blank" style="text-decoration: none; color: #333;">📅 Book a meeting with the team</a>
-                </p>
-                <p style="font-size: 1.1em; margin: 15px 0; padding: 15px; background-color: #fef2f2; border-radius: 8px; text-align: center;">
-                    <a href="https://adelph.it/ai-team" target="_blank" style="text-decoration: none; color: #333;">🎫 Open a ticket with the AI team</a>
-                </p>
+                <div class="button-container">
+                    <a href="https://outlook.office.com/book/AITeam@adelphi.de/" target="_blank" class="link-button">📅 Book a meeting with the team</a>
+                </div>
+                <div class="button-container">
+                    <a href="https://adelph.it/ai-team" target="_blank" class="link-button">🎫 Open a ticket with the AI team</a>
+                </div>
             </div>
 
             <!-- Langdock Agents Card -->
@@ -34,26 +68,30 @@
                     <img src="langdock-logo.png" alt="Langdock" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px; border-radius: 5px;">
                     Langdock Agents
                 </h2>
-                <p style="font-size: 1.1em; margin: 15px 0; padding: 15px; background-color: #fef2f2; border-radius: 8px; text-align: center;">
-                    <a href="https://app.langdock.com/chat?a=5659c4df-e5bc-4ca9-9263-4f561e28f35e" target="_blank" style="text-decoration: none; color: #333;">🎯 adelphi's 'Master' Agent</a>
-                </p>
-                <p style="font-size: 1.1em; margin: 15px 0; padding: 15px; background-color: #fef2f2; border-radius: 8px; text-align: center;">
-                    <a href="https://app.langdock.com/chat?a=7816e622-dbd1-48cc-ad28-d6ff626d8547" target="_blank" style="text-decoration: none; color: #333;">💻 IT Q&amp;A Agent</a>
-                </p>
-                <p style="font-size: 1.1em; margin: 15px 0; padding: 15px; background-color: #fef2f2; border-radius: 8px; text-align: center;">
-                    <a href="https://app.langdock.com/chat?a=0148cc79-a748-4648-9f5d-d9e72dd66daa" target="_blank" style="text-decoration: none; color: #333;">👥 HR Q&amp;A Agent</a>
-                </p>
-                <p style="font-size: 1.1em; margin: 15px 0; padding: 15px; background-color: #fef2f2; border-radius: 8px; text-align: center;">
-                    <a href="https://app.langdock.com/chat?a=fa20f8db-23da-4a0a-bbe1-993c66e0e607" target="_blank" style="text-decoration: none; color: #333;">✈️ Travel Q&amp;A Agent</a>
-                </p>
+                <div class="button-container">
+                    <a href="https://app.langdock.com/chat?a=5659c4df-e5bc-4ca9-9263-4f561e28f35e" target="_blank" class="link-button">🎯 adelphi's 'Master' Agent</a>
+                    <p class="agent-description">A tourguide on how to use Langdock effectively and safely.</p>
+                </div>
+                <div class="button-container">
+                    <a href="https://app.langdock.com/chat?a=7816e622-dbd1-48cc-ad28-d6ff626d8547" target="_blank" class="link-button">💻 IT Q&amp;A Agent</a>
+                    <p class="agent-description">IT assistant with access to IT memos and documents.</p>
+                </div>
+                <div class="button-container">
+                    <a href="https://app.langdock.com/chat?a=0148cc79-a748-4648-9f5d-d9e72dd66daa" target="_blank" class="link-button">👥 HR Q&amp;A Agent</a>
+                    <p class="agent-description">HR related documents, questions and knowledge!</p>
+                </div>
+                <div class="button-container">
+                    <a href="https://app.langdock.com/chat?a=fa20f8db-23da-4a0a-bbe1-993c66e0e607" target="_blank" class="link-button">✈️ Travel Q&amp;A Agent</a>
+                    <p class="agent-description">Knowledge about travel process and protocol.</p>
+                </div>
             </div>
 
             <!-- Documentation Card -->
             <div style="flex: 1; min-width: 280px; max-width: 360px; border: 2px solid #e63946; border-radius: 15px; padding: 25px; background-color: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
                 <h2 style="font-size: 1.4em; margin-top: 0; margin-bottom: 20px; color: #e63946; text-align: center;">📚 Documentation</h2>
-                <p style="font-size: 1.1em; margin: 15px 0; padding: 15px; background-color: #fef2f2; border-radius: 8px; text-align: center;">
-                    <a href="https://intranet.intern.adelphi.de/Company_Units/AI/_layouts/15/start.aspx#/SitePages/Homepage.aspx" target="_blank" style="text-decoration: none; color: #333;">📖 Helpful Documents</a>
-                </p>
+                <div class="button-container">
+                    <a href="https://intranet.intern.adelphi.de/Company_Units/AI/_layouts/15/start.aspx#/SitePages/Homepage.aspx" target="_blank" class="link-button">📖 Helpful Documents</a>
+                </div>
             </div>
 
         </div>
