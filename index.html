@@ -4,97 +4,339 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Helpful Links - adelphi AI Team</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .link-button {
-            display: block;
-            text-decoration: none;
-            color: #333;
-            transition: all 0.2s ease;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .link-button:hover {
-            color: #e63946;
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #f5f3f1;
+            min-height: 100vh;
+            color: #2d2d2d;
+        }
+
+        .page-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 30px 40px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .logo-mask {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            background: #fff;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-mask img {
+            width: 60%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+            margin-bottom: 6px;
+        }
+
+        .header h1 span {
+            color: #d63340;
+        }
+
+        .header p {
+            color: #888;
+            font-size: 0.95rem;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+        }
+
+        /* Masonry Grid */
+        .masonry {
+            columns: 3;
+            column-gap: 22px;
+        }
+
+        @media (max-width: 900px) {
+            .masonry { columns: 2; }
+        }
+
+        @media (max-width: 560px) {
+            .masonry { columns: 1; }
+        }
+
+        /* Cards */
+        .card {
+            break-inside: avoid;
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 28px 26px;
+            margin-bottom: 22px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
             transform: translateY(-2px);
         }
-        .button-container {
-            font-size: 1.1em;
-            margin: 15px 0;
-            padding: 15px;
-            background-color: #fef2f2;
-            border-radius: 8px;
-            text-align: center;
+
+        .card-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #d63340;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-label .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #d63340;
+            flex-shrink: 0;
+        }
+
+        .card-label img {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+        }
+
+        .link-item {
+            display: block;
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            background: #faf8f6;
             transition: all 0.2s ease;
+            border: 1px solid transparent;
         }
-        .button-container:hover {
-            background-color: #fce4e4;
-            box-shadow: 0 4px 12px rgba(230, 57, 70, 0.15);
+
+        .link-item:last-child {
+            margin-bottom: 0;
         }
-        .agent-description {
-            font-size: 0.85em;
-            color: #666;
-            margin-top: 8px;
-            line-height: 1.4;
+
+        .link-item:hover {
+            background: #fef0f0;
+            border-color: rgba(214, 51, 64, 0.12);
+            color: #d63340;
+        }
+
+        .link-item .link-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .link-item .link-title svg {
+            flex-shrink: 0;
+            width: 16px;
+            height: 16px;
+            opacity: 0.4;
+            transition: opacity 0.2s ease;
+        }
+
+        .link-item:hover .link-title svg {
+            opacity: 0.7;
+        }
+
+        .link-desc {
+            font-size: 0.8rem;
+            color: #999;
+            font-weight: 400;
+            margin-top: 5px;
+            line-height: 1.45;
+            padding-left: 26px;
+        }
+
+        /* Accent card */
+        .card.accent {
+            background: #d63340;
+            border-color: transparent;
+        }
+
+        .card.accent .card-label {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .card.accent .card-label .dot {
+            background: rgba(255,255,255,0.7);
+        }
+
+        .card.accent .link-item {
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+        }
+
+        .card.accent .link-item:hover {
+            background: rgba(255,255,255,0.25);
+            border-color: rgba(255,255,255,0.15);
+            color: #fff;
+        }
+
+        .card.accent .link-desc {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .card.accent .link-item .link-title svg {
+            opacity: 0.6;
+        }
+
+        .card.accent .link-item:hover .link-title svg {
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            color: #bbb;
+            font-size: 0.8rem;
+            letter-spacing: 0.02em;
         }
     </style>
 </head>
-<body style="font-family: Arial, sans-serif; margin: 0; padding: 40px; background-color: #faf8f7; min-height: 100vh;">
-    <div style="max-width: 800px; margin: 0 auto;">
-        
+<body>
+    <div class="page-wrapper">
+
         <!-- Header -->
-        <div style="text-align: center; margin-bottom: 40px;">
-            <div style="display: flex; align-items: center; justify-content: center; gap: 15px;">
-                <img src="adelphi-logo.png" alt="adelphi" style="height: 50px;">
-                <h1 style="color: #e63946; font-size: 2em; margin: 0;">adelphi AI Team</h1>
+        <div class="header">
+            <div class="logo-mask">
+                <img src="adelphi-logo.png" alt="adelphi">
             </div>
-            <p style="color: #666; font-size: 1.1em;">Helpful Links & Resources</p>
+            <h1><span>adelphi</span> AI Team</h1>
+            <p>Links &amp; Resources</p>
         </div>
 
-        <!-- Cards Container -->
-        <div style="display: flex; flex-wrap: wrap; gap: 25px; justify-content: center;">
+        <!-- Masonry Grid -->
+        <div class="masonry">
 
-            <!-- Contact & Info Card -->
-            <div style="flex: 1; min-width: 280px; max-width: 360px; border: 2px solid #e63946; border-radius: 15px; padding: 25px; background-color: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
-                <h2 style="font-size: 1.4em; margin-top: 0; margin-bottom: 20px; color: #e63946; text-align: center;">📬 Contact & Info</h2>
-                <div class="button-container">
-                    <a href="https://outlook.office.com/book/AITeam@adelphi.de/" target="_blank" class="link-button">📅 Book a meeting with the team</a>
-                </div>
-                <div class="button-container">
-                    <a href="https://adelph.it/aiteam" target="_blank" class="link-button">🎫 Open a ticket with the AI team</a>
-                </div>
-                <div class="button-container">
-                    <a href="https://intranet.intern.adelphi.de/Company_Units/AI/_layouts/15/start.aspx#/SitePages/Homepage.aspx" target="_blank" class="link-button">📖 Helpful Documents</a>
-                    <p class="agent-description">AI team's intranet page</p>
-                </div>
+            <!-- Card: Book a meeting -->
+            <div class="card accent">
+                <div class="card-label"><span class="dot"></span>Get in touch</div>
+                <a href="https://outlook.office.com/book/AITeam@adelphi.de/" target="_blank" class="link-item">
+                    <div class="link-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        Book a meeting with the team
+                    </div>
+                </a>
+                <a href="https://adelph.it/aiteam" target="_blank" class="link-item">
+                    <div class="link-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        Open a ticket
+                    </div>
+                </a>
             </div>
 
-            <!-- Langdock Agents Card -->
-            <div style="flex: 1; min-width: 280px; max-width: 360px; border: 2px solid #e63946; border-radius: 15px; padding: 25px; background-color: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
-                <h2 style="font-size: 1.4em; margin-top: 0; margin-bottom: 20px; color: #e63946; text-align: center;">
-                    <img src="langdock-logo.png" alt="Langdock" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px; border-radius: 5px;">
-                    Langdock Agents
-                </h2>
-                <div class="button-container">
-                    <a href="https://app.langdock.com/chat?a=5659c4df-e5bc-4ca9-9263-4f561e28f35e" target="_blank" class="link-button">🎯 adelphi's 'Master' Agent</a>
-                    <p class="agent-description">A tourguide on how to use Langdock effectively and safely.</p>
-                </div>
-                <div class="button-container">
-                    <a href="https://app.langdock.com/chat?a=7816e622-dbd1-48cc-ad28-d6ff626d8547" target="_blank" class="link-button">💻 IT Q&amp;A Agent</a>
-                    <p class="agent-description">IT assistant with access to IT memos and documents.</p>
-                </div>
-                <div class="button-container">
-                    <a href="https://app.langdock.com/chat?a=0148cc79-a748-4648-9f5d-d9e72dd66daa" target="_blank" class="link-button">👥 HR Q&amp;A Agent</a>
-                    <p class="agent-description">HR related documents, questions and knowledge!</p>
-                </div>
-                <div class="button-container">
-                    <a href="https://app.langdock.com/chat?a=fa20f8db-23da-4a0a-bbe1-993c66e0e607" target="_blank" class="link-button">✈️ Travel Q&amp;A Agent</a>
-                    <p class="agent-description">Knowledge about travel process and protocol.</p>
-                </div>
+            <!-- Card: Master Agent -->
+            <div class="card">
+                <div class="card-label"><img src="langdock-logo.png" alt="Langdock"> Langdock</div>
+                <a href="https://app.langdock.com/chat?a=5659c4df-e5bc-4ca9-9263-4f561e28f35e" target="_blank" class="link-item">
+                    <div class="link-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                        adelphi Master Agent
+                    </div>
+                    <div class="link-desc">A tour guide on how to use Langdock effectively and safely.</div>
+                </a>
+            </div>
+
+            <!-- Card: IT Agent -->
+            <div class="card">
+                <div class="card-label"><img src="langdock-logo.png" alt="Langdock"> Langdock</div>
+                <a href="https://app.langdock.com/chat?a=7816e622-dbd1-48cc-ad28-d6ff626d8547" target="_blank" class="link-item">
+                    <div class="link-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        IT Q&amp;A Agent
+                    </div>
+                    <div class="link-desc">IT assistant with access to memos and documentation.</div>
+                </a>
+            </div>
+
+            <!-- Card: Intranet -->
+            <div class="card">
+                <div class="card-label"><span class="dot"></span>Documentation</div>
+                <a href="https://intranet.intern.adelphi.de/Company_Units/AI/_layouts/15/start.aspx#/SitePages/Homepage.aspx" target="_blank" class="link-item">
+                    <div class="link-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                        AI Team Intranet
+                    </div>
+                    <div class="link-desc">Helpful documents, guides and internal resources.</div>
+                </a>
+            </div>
+
+            <!-- Card: HR Agent -->
+            <div class="card">
+                <div class="card-label"><img src="langdock-logo.png" alt="Langdock"> Langdock</div>
+                <a href="https://app.langdock.com/chat?a=0148cc79-a748-4648-9f5d-d9e72dd66daa" target="_blank" class="link-item">
+                    <div class="link-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        HR Q&amp;A Agent
+                    </div>
+                    <div class="link-desc">HR-related documents, questions and knowledge.</div>
+                </a>
+            </div>
+
+            <!-- Card: Newsletter -->
+            <div class="card accent">
+                <div class="card-label"><span class="dot"></span>Stay up to date</div>
+                <a href="https://outlook.office.com/newsletters/pages/5b36ee69f509f24c99749a9db0b257fa1a/read" target="_blank" class="link-item">
+                    <div class="link-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+                        AI Department Newsletter
+                    </div>
+                    <div class="link-desc">Hacks, tools and teaching formats from the AI team.</div>
+                </a>
+            </div>
+
+            <!-- Card: Travel Agent -->
+            <div class="card">
+                <div class="card-label"><img src="langdock-logo.png" alt="Langdock"> Langdock</div>
+                <a href="https://app.langdock.com/chat?a=fa20f8db-23da-4a0a-bbe1-993c66e0e607" target="_blank" class="link-item">
+                    <div class="link-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+                        Travel Q&amp;A Agent
+                    </div>
+                    <div class="link-desc">Knowledge about travel processes and protocols.</div>
+                </a>
             </div>
 
         </div>
 
         <!-- Footer -->
-        <div style="text-align: center; margin-top: 50px; color: #999; font-size: 0.9em;">
-            <p>adelphi AI Team • Berlin</p>
+        <div class="footer">
+            adelphi AI Team &middot; Berlin
         </div>
 
     </div>
