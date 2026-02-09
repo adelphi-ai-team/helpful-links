@@ -114,4 +114,192 @@
         .card-label .dot {
             width: 6px;
             height: 6px;
-     
+            border-radius: 50%;
+            background: #d63340;
+            flex-shrink: 0;
+        }
+
+        .link-item {
+            display: block;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            background: #faf8f6;
+            transition: background 0.2s ease, border-color 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .link-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .link-item:hover {
+            background: #fef0f0;
+            border-color: rgba(214, 51, 64, 0.12);
+            color: #b02a33;
+        }
+
+        .link-item .link-title {
+            display: block;
+        }
+
+        .link-desc {
+            font-size: 0.8rem;
+            color: #999;
+            font-weight: 400;
+            margin-top: 5px;
+            line-height: 1.45;
+        }
+
+        /* Accent card */
+        .card.accent {
+            background: #d63340;
+            border-color: transparent;
+        }
+
+        .card.accent .card-label {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .card.accent .card-label .dot {
+            background: rgba(255,255,255,0.7);
+        }
+
+        .card.accent .link-item {
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+        }
+
+        .card.accent .link-item:hover {
+            background: rgba(255,255,255,0.25);
+            border-color: rgba(255,255,255,0.15);
+            color: #fff;
+        }
+
+        .card.accent .link-desc {
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Langdock cards */
+        .card.langdock {
+            background: #fafbff;
+            border-color: rgba(90, 100, 200, 0.1);
+        }
+
+        .card.langdock .card-label {
+            color: #5a64c8;
+        }
+
+        .card.langdock .link-item:hover {
+            background: #f0f1ff;
+            border-color: rgba(90, 100, 200, 0.12);
+            color: #3f4799;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            color: #bbb;
+            font-size: 0.8rem;
+            letter-spacing: 0.02em;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+
+        <!-- Header -->
+        <div class="header">
+            <h1><span>adelphi</span> AI Team</h1>
+            <p>Links &amp; Resources</p>
+        </div>
+
+        <!-- Masonry Grid -->
+        <div class="masonry">
+
+            <!-- Card: Book a meeting + Ticket + Email -->
+            <div class="card accent">
+                <div class="card-label"><span class="dot"></span>Get in touch</div>
+                <a href="https://outlook.office.com/book/AITeam@adelphi.de/" target="_blank" class="link-item">
+                    <div class="link-title">Book a meeting with the team</div>
+                </a>
+                <a href="https://adelph.it/aiteam" target="_blank" class="link-item">
+                    <div class="link-title">Open a ticket</div>
+                </a>
+                <a href="mailto:ai@adelphi.de" class="link-item">
+                    <div class="link-title">ai@adelphi.de</div>
+                    <div class="link-desc">For formal inquiries.</div>
+                </a>
+            </div>
+
+            <!-- Card: Newsletter -->
+            <div class="card accent">
+                <div class="card-label"><span class="dot"></span>Stay up to date</div>
+                <a href="https://outlook.office.com/newsletters/pages/5b36ee69f509f24c99749a9db0b257fa1a/read" target="_blank" class="link-item">
+                    <div class="link-title">AI Department Newsletter</div>
+                    <div class="link-desc">Hacks, tools and teaching formats from the AI team.</div>
+                </a>
+            </div>
+
+            <!-- Card: Video Tutorials -->
+            <div class="card">
+                <div class="card-label"><span class="dot"></span>Learn</div>
+                <a href="https://adelphide.sharepoint.com/:l:/s/AIDepartment/JAC3zPtQt5CKTIFj4qLvKwuOAUuPwdiCm-qvZG7-kym4x70?e=w7Udmo" target="_blank" class="link-item">
+                    <div class="link-title">Video Tutorials</div>
+                    <div class="link-desc">Step-by-step guides and walkthroughs.</div>
+                </a>
+            </div>
+
+            <!-- Card: Master Agent (first) -->
+            <div class="card langdock">
+                <div class="card-label">Langdock</div>
+                <a href="https://app.langdock.com/chat?a=5659c4df-e5bc-4ca9-9263-4f561e28f35e" target="_blank" class="link-item">
+                    <div class="link-title">adelphi Master Agent</div>
+                    <div class="link-desc">A tour guide on how to use Langdock effectively and safely.</div>
+                </a>
+            </div>
+
+            <!-- Card: IT Agent -->
+            <div class="card langdock">
+                <div class="card-label">Langdock</div>
+                <a href="https://app.langdock.com/chat?a=7816e622-dbd1-48cc-ad28-d6ff626d8547" target="_blank" class="link-item">
+                    <div class="link-title">IT Q&amp;A Agent</div>
+                    <div class="link-desc">IT assistant with access to memos and documentation.</div>
+                </a>
+            </div>
+
+            <!-- Card: HR Agent -->
+            <div class="card langdock">
+                <div class="card-label">Langdock</div>
+                <a href="https://app.langdock.com/chat?a=0148cc79-a748-4648-9f5d-d9e72dd66daa" target="_blank" class="link-item">
+                    <div class="link-title">HR Q&amp;A Agent</div>
+                    <div class="link-desc">HR-related documents, questions and knowledge.</div>
+                </a>
+            </div>
+
+            <!-- Card: Travel Agent -->
+            <div class="card langdock">
+                <div class="card-label">Langdock</div>
+                <a href="https://app.langdock.com/chat?a=fa20f8db-23da-4a0a-bbe1-993c66e0e607" target="_blank" class="link-item">
+                    <div class="link-title">Travel Q&amp;A Agent</div>
+                    <div class="link-desc">Knowledge about travel processes and protocols.</div>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            adelphi AI Team &middot; Berlin
+        </div>
+
+    </div>
+</body>
+</html>
